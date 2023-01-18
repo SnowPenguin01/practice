@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https: //fonts.googleapis.com/css2?family= Roboto & display = swap" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styleGridMobile.css">
+    <title>GridMobile</title>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+
+        </div>
+    </header>
+
+    <section>
+        <div class="wrap wrap_theme-island wrap_border">
+            <div class="container">
+                <div class="info-block">
+                    <div class="info-block__item info-block__item_view">
+                        <div class="item__number item__number_view">
+                            <p class="number number_view">1</p>
+                        </div>
+                        <div class="item__text">
+                            <p class="text text_view">Соберите необходимое <br> количество документов</p>
+                        </div>
+                    </div>
+                    <div class="info-block__item info-block__item_view">
+                        <div class="item__number item__number_view">
+                            <p class="number number_view">2</p>
+                        </div>
+                        <div class="item__text">
+                            <p class="text text_view">Оставьте заявку на сайте <br> или в офисе банка</p>
+                        </div>
+                    </div>
+                    <div class="info-block__item info-block__item_view">
+                        <div class="item__number item__number_view">
+                            <p class="number number_view">3</p>
+                        </div>
+                        <div class="item__text">
+                            <p class="text text_view">Получите решение банка</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="title title_view">
+                    <h2 class="title__text">Рассчитать условия и оставить заявку</h2>
+                </div>
+
+                <div class="calc-block">
+                    <div class="calc-block__control">
+                        <form action="" class="form-group">
+                            <div class="button-switch">
+                                <p class="button-switch__text button-switch__text_view">С обеспечением</p>
+                                <input type="checkbox" class="button-switch__checkbox">
+                                <p class="button-switch__text button-switch__text_view">Без обеспечения</p>
+                            </div>
+                            <br>
+                            <br>
+                            <p class="form-text">Сумма кредита</p>
+                            <input class="form-input" type="number" id="amount" name="amount_money" placeholder="5 000 000₽" value="">
+                            <input class="form-range" type="range" oninput="amount.value=(amountRange.value)" id="amountRange" name="amountRange_money" min="100000" max="10000000" value="5000000">
+                            <div class="under-form-text">
+                                <p class="form-text">100 000 ₽</p>
+                                <p class="form-text">10 000 000 ₽</p>
+                            </div>
+                            <div class="application-text">
+                                <p>Для обсуждения персональных условий <a class="application-link" href="#">оставьте заявку</a></p>
+                            </div>
+
+                            <p class="form-text">Срок кредита</p>
+                            <input class="form-input" type="number" id="amount" name="amount_money" placeholder="2,5 года">
+                            <input class="form-range" type="range" id="amount" name="amount_money">
+                            <div class="under-form-text">
+                                <p class="form-text">13 мес.</p>
+                                <p class="form-text">5 лет</p>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="calc-block__content calc-block__content_view">
+                        <div class="content-block">
+                            <p class="content-text">Ежемесячный платеж</p>
+                            <h3 class="content-title">75 000 ₽/мес.</h3>
+
+                            <hr>
+
+                            <p class="content-text">Кредитная программа</p>
+                            <h3 class="content-subtitle">Потребительский кредит</h3>
+                            <p class="content-text">Ставка по кредиту</p>
+                            <h3 class="content-subtitle">16,5%</h3>
+
+                            <hr>
+
+                            <br>
+                            <div class="checkbox-block">
+                                <input class="checkbox-block_check" type="checkbox" id="check" name="interest" value="check" checked />
+                                <p class="checkbox-block__text"><a href="#" class="checkbox-block__link">Акция</a>ставка 16,5%</p>
+                            </div>
+                            <br>
+                                <p class="copy-text">Расчет является приблизительным,<a href="#" class="checkbox-block__link">c учетом возможных скидок</a><br>
+                                и соблюдением всех условий по кредиту. Точные условия<br> по кредиту и расчет вы получите после подачи заявки. Не является публичной офертой.</p>
+                            <br>
+                                <button class="button-to-send" onclick="submit()">Отправить заявку</button>
+                        </div>
+                        <div class="pseudo-block pseudo-block_first "></div> 
+                        <div class="pseudo-block pseudo-block_second "></div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+
+        </div>
+    </footer>
+
+
+    <script src="app.js"></script>
+</body>
+</html>
