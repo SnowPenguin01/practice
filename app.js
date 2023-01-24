@@ -39,6 +39,11 @@ document.querySelector('.checkbox-block_check').addEventListener('click', () => 
 
 
 document.querySelector('#amountRange').addEventListener('input', () => {
-    let sumNumber = document.querySelector('#amountRange').value;
-    document.querySelector('#amount').value = sumNumber + " ₽";
+    let sumNumberRange = document.querySelector('#amountRange').value;
+    let showSumNumber = new Intl.NumberFormat('ru-RU', {
+        style: "currency",
+        currency: 'RUB'
+    }).format(sumNumberRange);
+
+    document.querySelector('#amount').value = showSumNumber;
 });
