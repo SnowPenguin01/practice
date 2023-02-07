@@ -13,7 +13,7 @@
 </head>
 <body>
 
-    <header>
+       <header>
         <div class="container">
 
         </div>
@@ -64,11 +64,11 @@
                             <div class="form-input-group">
                                 <p class="form-text">Сумма кредита</p>
                                 <input class="form-input" type="text" id="amount" name="amount_money" placeholder="5 000 000₽" value="">
-                                <input class="form-range" type="range" oninput="amount.value=(amountRange.value)" id="amountRange" name="amountRange_money" min="100000" max="10000000" value="5000000">
+                                <input class="form-range" type="range" oninput="amount.value=(amountRange.value)" id="amountRange" name="amountRange_money" min="300000" max="10000000" value="5000000">
                             </div>
                             <div class="under-form-text">
-                                <p class="form-text">100 000 ₽</p>
-                                <p class="form-text">10 000 000 ₽</p>
+                                <p class="form-text credit-number__min"></p>
+                                <p class="form-text credit-number__max"></p>
                             </div>
                             <div class="application-text">
                                 <p>Для обсуждения персональных условий <a class="application-link" href="#">оставьте заявку</a></p>
@@ -79,8 +79,8 @@
                                 <input class="form-range" type="range" id="amount" name="amount_money">
                             </div>
                             <div class="under-form-text">
-                                <p class="form-text">13 мес.</p>
-                                <p class="form-text">5 лет</p>
+                                <p class="form-text credit-data__min"></p>
+                                <p class="form-text credit-data__max"></p>
                             </div>
                         </form>
                     </div>
