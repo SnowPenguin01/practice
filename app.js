@@ -1,13 +1,38 @@
-function  submit(){
-    let result = document.getElementById("amount");
-    let amount = result.value;
-    let check1 = document.querySelector('.button-switch__checkbox').value;
-    let check2 = document.querySelector('.checkbox-block_check').value;
-    alert("Ваша заявка в размере " + amount + " рублей успешно отправлена!\n"
-          + "С обеспечением: " + check1 + "\n"
-          + "Акция: " + check2 + "\n");
-    result.value = "";
-}
+class Method {
+
+    submit = function(){
+        let result = document.getElementById("amount");
+        let amount = result.value;
+        let check1 = document.querySelector('.button-switch__checkbox').value;
+        let check2 = document.querySelector('.checkbox-block_check').value;
+        alert("Ваша заявка в размере " + amount + " рублей успешно отправлена!\n"
+              + "С обеспечением: " + check1 + "\n"
+              + "Акция: " + check2 + "\n");
+        result.value = "";
+    }
+
+    getResponse = async function() {
+        let response = await fetch('http://new.energobank.su/local/ajax/calculator.php?PID=15373');
+        let result = await response.json.parse(response);
+    
+        let list = document.querySelector("under-form-text");
+    
+        for (let key in result){
+            
+            list.innerHTML += `
+                <div class="under-form-text">
+                    <p class="form-text">${result['sum'].min_value} ₽</p>
+                    <p class="form-text">${result[key].max_value} ₽</p>
+                </div>
+            `
+        };
+    }
+  }
+
+  Method().getResponse();
+  Method().submit();
+
+
 
 document.querySelector('#amountRange').oninput = () => {
     console.log(document.querySelector('#amountRange').value);
@@ -25,7 +50,6 @@ document.querySelector('.button-switch__checkbox').addEventListener('click', () 
     }
 });
 
-
 document.querySelector('.checkbox-block_check').addEventListener('click', () => {
     let with2 = "Да";
     let withOut = "Нет";
@@ -36,7 +60,6 @@ document.querySelector('.checkbox-block_check').addEventListener('click', () => 
         document.querySelector('.checkbox-block_check').value = withOut;
     }
 });
-
 
 document.querySelector('#amountRange').addEventListener('input', () => {
     let sumNumberRange = document.querySelector('#amountRange').value;
