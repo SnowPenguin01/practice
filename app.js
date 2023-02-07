@@ -1,30 +1,29 @@
-class Method {
+const submit = function(){
+    let result = document.getElementById("amount");
+    let amount = result.value;
+    let check1 = document.querySelector('.button-switch__checkbox').value;
+    let check2 = document.querySelector('.checkbox-block_check').value;
+    alert("Ваша заявка в размере " + amount + " рублей успешно отправлена!\n"
+          + "С обеспечением: " + check1 + "\n"
+          + "Акция: " + check2 + "\n");
+    result.value = "";
+}
 
-    submit = function(){
-        let result = document.getElementById("amount");
-        let amount = result.value;
-        let check1 = document.querySelector('.button-switch__checkbox').value;
-        let check2 = document.querySelector('.checkbox-block_check').value;
-        alert("Ваша заявка в размере " + amount + " рублей успешно отправлена!\n"
-              + "С обеспечением: " + check1 + "\n"
-              + "Акция: " + check2 + "\n");
-        result.value = "";
-    }
-
-    getResponse = async function() {
-        let response = await fetch('http://new.energobank.su/local/ajax/calculator.php?PID=15373');
-        let result = await JSON.parse(response);
-        let underNumber = result[sum][min_value];
-        
-        document.querySelector(".form-text").value = underNumber;
-        
-    }
-  }
-
-  
-  Method().getResponse();
-  Method().submit();
-
+const getResponse = async function() {
+    let response = await fetch('http://new.energobank.su/local/ajax/calculator.php?PID=15373');
+    let result = await response.json();
+    let creditNumberMin = result.sum.min_value + ' ₽';
+    let creditNumberMax = result.sum.max_value + ' ₽';
+    let creditDataMin = result.term.min_value + ' мес.';
+    let creditDataMax = (result.term.max_value / 12) + ' лет';
+    
+    document.querySelector(".credit-number__min").innerHTML = creditNumberMin;
+    document.querySelector(".credit-number__max").innerHTML = creditNumberMax;
+    document.querySelector(".credit-data__min").innerHTML = creditDataMin;
+    document.querySelector(".credit-data__max").innerHTML = creditDataMax;
+    
+}
+getResponse();
 
 
 document.querySelector('#amountRange').oninput = () => {
