@@ -13,22 +13,15 @@ class Method {
 
     getResponse = async function() {
         let response = await fetch('http://new.energobank.su/local/ajax/calculator.php?PID=15373');
-        let result = await response.json.parse(response);
-    
-        let list = document.querySelector("under-form-text");
-    
-        for (let key in result){
-            
-            list.innerHTML += `
-                <div class="under-form-text">
-                    <p class="form-text">${result['sum'].min_value} ₽</p>
-                    <p class="form-text">${result[key].max_value} ₽</p>
-                </div>
-            `
-        };
+        let result = await JSON.parse(response);
+        let underNumber = result[sum][min_value];
+        
+        document.querySelector(".form-text").value = underNumber;
+        
     }
   }
 
+  
   Method().getResponse();
   Method().submit();
 
