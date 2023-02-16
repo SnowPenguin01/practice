@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https: //fonts.googleapis.com/css2?family= Roboto & display = swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
     <title>GridMobile</title>
@@ -64,7 +64,7 @@
                             <div class="form-input-group">
                                 <p class="form-text">Сумма кредита</p>
                                 <input class="form-input" type="text" id="amount" name="amount_money" placeholder="5 000 000₽" value="">
-                                <input class="form-range" type="range" oninput="amount.value=(amountRange.value)" id="amountRange" name="amountRange_money" min="300000" max="10000000" value="5000000">
+                                <input class="form-range" type="range" id="amountRange" name="amountRange_money" min="300000" max="10000000" value="5000000">
                             </div>
                             <div class="under-form-text">
                                 <p class="form-text credit-number__min"></p>
@@ -75,8 +75,8 @@
                             </div>
                             <div class="form-input-group">
                                 <p class="form-text">Срок кредита</p>
-                                <input class="form-input" type="number" id="amount" name="amount_money" placeholder="2,5 года">
-                                <input class="form-range" type="range" id="amount" name="amount_money">
+                                <input class="form-input" type="text" id="amountYear" name="amount_year" placeholder="2,5 года">
+                                <input class="form-range" type="range" id="amountYears" name="amount_year" min="13" max="84" value="48">
                             </div>
                             <div class="under-form-text">
                                 <p class="form-text credit-data__min"></p>
