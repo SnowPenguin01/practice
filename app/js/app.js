@@ -1,19 +1,23 @@
 class test {
     constructor(sumEl, yearEl){
 
-        this.sumEl = sumEl;
-        this.yearEl = yearEl;
-
-        document.querySelector('#amountYears').addEventListener('input', () => {
-            let resultYears = document.querySelector('#amountYears').value + ' мес.';
-            // console.log(document.querySelector('#amountYears').value);
-            document.querySelector('#amountYear').value = resultYears;
-        });
+        this.sumEl = 0;
+        this.yearEl = 0;
 
         document.querySelector('#amountRange').addEventListener('input', () => {
             let resultSumNumber = document.querySelector('#amountRange').value;
             // console.log(document.querySelector('#amountRange').value);
             document.querySelector('#amount').value = resultSumNumber;
+            this.sumEl = parseInt(resultSumNumber);
+            this.calc();
+        });
+
+        document.querySelector('#amountYears').addEventListener('input', () => {
+            let resultYears = document.querySelector('#amountYears').value + ' мес.';
+            // console.log(document.querySelector('#amountYears').value);
+            document.querySelector('#amountYear').value = resultYears;
+            this.yearEl = parseInt(resultYears);
+            this.calc();
         });
         
         document.querySelector('.button-switch__checkbox').addEventListener('click', () => {
@@ -130,24 +134,7 @@ class test {
 }
 
 
-let sumEl = document.querySelector('#amountRange').addEventListener('input', () => {
-            let resultSumNumber = document.querySelector('#amountRange').value;
-            // console.log(document.querySelector('#amountRange').value);
-            document.querySelector('#amount').value = resultSumNumber;
-            });
-
-console.log(sumEl);
-
-let yearEl = document.querySelector('#amountYears').addEventListener('input', () => {
-            let resultYears = document.querySelector('#amountYears').value + ' мес.';
-            // console.log(document.querySelector('#amountYears').value);
-            document.querySelector('#amountYear').value = resultYears;
-});
-
-console.log(yearEl);
-
-
-let test1 = new test(sumEl, yearEl);
+let test1 = new test();
 test1.getResponse();
 test1.submit();
 test1.calc();
