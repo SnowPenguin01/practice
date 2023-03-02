@@ -137,4 +137,3 @@ class test {
 let test1 = new test();
 test1.getResponse();
 test1.submit();
-test1.calc();
