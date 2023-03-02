@@ -1,15 +1,18 @@
 class test {
-    constructor(){
+    constructor(sumEl, yearEl){
+
+        this.sumEl = sumEl;
+        this.yearEl = yearEl;
 
         document.querySelector('#amountYears').addEventListener('input', () => {
             let resultYears = document.querySelector('#amountYears').value + ' мес.';
-            console.log(document.querySelector('#amountYears').value);
+            // console.log(document.querySelector('#amountYears').value);
             document.querySelector('#amountYear').value = resultYears;
         });
 
         document.querySelector('#amountRange').addEventListener('input', () => {
             let resultSumNumber = document.querySelector('#amountRange').value;
-            console.log(document.querySelector('#amountRange').value);
+            // console.log(document.querySelector('#amountRange').value);
             document.querySelector('#amount').value = resultSumNumber;
         });
         
@@ -46,19 +49,34 @@ class test {
         });
 
 
-        document.querySelector('#amountRange').addEventListener('input', sumCred => {
-            document.querySelector('#amountYears').addEventListener('input', yearNum =>{
-                let Sum = sumCred;
-                console.log(Sum);
-                let Years = yearNum;
-                console.log(Years);
-                let percent = 16.5 / 12 / 100;
-                let isn = Math.pow(1 + percent, Years.target.value);
-                let rr = Math.ceil(Sum.target.value * percent * (isn/(isn - 1))) + ' ₽/мес.';
-                document.querySelector('.content-title').textContent = rr;
-            });
-        })
+        // document.querySelector('#amountRange').addEventListener('input', sumCred => {
+        //     document.querySelector('#amountYears').addEventListener('input', yearNum =>{
+        //         let Sum = sumCred;
+        //         console.log(Sum);
+        //         let Years = yearNum;
+        //         console.log(Years);
+        //         let percent = 16.5 / 12 / 100;
+        //         let isn = Math.pow(1 + percent, Years.target.value);
+        //         let rr = Math.ceil(Sum.target.value * percent * (isn/(isn - 1))) + ' ₽/мес.';
+        //         document.querySelector('.content-title').textContent = rr;
+        //     });
+        // })
     }
+
+    calc(){
+        let percent = 16.5 / 12 / 100;
+        let isn = Math.pow(1 + percent, this.yearEl);
+        let rr = Math.ceil(this.sumEl * percent * (isn/(isn - 1))) + ' ₽/мес.';
+        document.querySelector('.content-title').textContent = rr;
+    }
+
+
+    // calcCredSum(){
+    //     let percent = 16.5 / 12 / 100;
+    //     let isn = Math.pow(1 + percent, yearNumClass.target.value);
+    //     let rr = Math.ceil(sumCredClass.target.value * percent * (isn/(isn - 1))) + ' ₽/мес.';
+    //     console.log(document.querySelector('.content-title').textContent = rr);
+    // }
 
     submit(){
         document.querySelector(".button-to-send").addEventListener('click', () => {
@@ -84,9 +102,13 @@ class test {
             .then(data => {
                 console.log(data),
                 document.querySelector(".credit-number__min").innerHTML = data.sum.min_value + ' ₽',
+                document.querySelector(".sumFormAttr").setAttribute("min", data.sum.min_value),
                 document.querySelector(".credit-number__max").innerHTML = data.sum.max_value + ' ₽',
+                document.querySelector(".sumFormAttr").setAttribute("max", data.sum.max_value),
                 document.querySelector(".credit-data__min").innerHTML = data.term.min_value + ' мес.',
-                document.querySelector(".credit-data__max").innerHTML = (data.term.max_value / 12) + ' лет'
+                document.querySelector(".yearFormAttr").setAttribute("min", data.term.min_value),
+                document.querySelector(".credit-data__max").innerHTML = (data.term.max_value / 12) + ' лет',
+                document.querySelector(".yearFormAttr").setAttribute("max", data.term.max_value)
             })
     }
 
@@ -107,6 +129,25 @@ class test {
     // }
 }
 
-let test1 = new test();
+
+let sumEl = document.querySelector('#amountRange').addEventListener('input', () => {
+            let resultSumNumber = document.querySelector('#amountRange').value;
+            // console.log(document.querySelector('#amountRange').value);
+            document.querySelector('#amount').value = resultSumNumber;
+            });
+
+console.log(sumEl);
+
+let yearEl = document.querySelector('#amountYears').addEventListener('input', () => {
+            let resultYears = document.querySelector('#amountYears').value + ' мес.';
+            // console.log(document.querySelector('#amountYears').value);
+            document.querySelector('#amountYear').value = resultYears;
+});
+
+console.log(yearEl);
+
+
+let test1 = new test(sumEl, yearEl);
 test1.getResponse();
 test1.submit();
+test1.calc();
