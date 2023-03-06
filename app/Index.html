@@ -7,7 +7,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Calculator</title>
 </head>
@@ -63,8 +62,8 @@
                             </div>
                             <div class="form-input-group">
                                 <p class="form-text">Сумма кредита</p>
-                                <input class="form-input" type="text" id="amount" name="amount_money" placeholder="5 000 000₽" value="">
-                                <input class="form-range" type="range" id="amountRange" name="amountRange_money" min="300000" max="10000000" value="">
+                                <input class="form-input" type="text" id="amount" name="amount_money" placeholder="5 000 000₽">
+                                <input class="form-range sumFormAttr" type="range" id="amountRange" name="amountRange_money"  value="">
                             </div>
                             <div class="under-form-text">
                                 <p class="form-text credit-number__min"></p>
@@ -76,7 +75,7 @@
                             <div class="form-input-group">
                                 <p class="form-text">Срок кредита</p>
                                 <input class="form-input" type="text" id="amountYear" name="amount_year" placeholder="2,5 года">
-                                <input class="form-range" type="range" id="amountYears" name="amount_year" min="13" max="84" value="">
+                                <input class="form-range yearFormAttr" type="range" id="amountYears" name="amount_year" value="">
                             </div>
                             <div class="under-form-text">
                                 <p class="form-text credit-data__min"></p>
