@@ -1,0 +1,236 @@
+@import 'color.scss';
+
+
+@mixin transform($property) {
+    -webkit-appearance: $property;
+}
+
+%content-text {
+    text-transform: uppercase;
+    color: $contentText;
+}
+
+.calc-block{
+    margin: 0 5px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(450px, auto);
+    row-gap: 10px;
+}
+
+.form-group{
+    width: 335px;  
+}
+
+
+// switch-btn
+
+.button-switch{
+    display: flex;
+    margin-bottom: 39px;
+
+    &__text{
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__text_view{
+        color: $white;
+    }
+
+    &__checkbox{
+        margin: 0 10px;
+        position: relative;
+        width: 50px;
+        height: 25px;
+        @include transform(none);
+        border-radius: 25px;
+    }
+    
+    &__checkbox::before{
+        content: "";
+        position: absolute;
+        width: 21px;
+        height: 21px;
+        background: $blue;
+        border-radius: 20px;
+        top: 2px;
+        left: 4px;
+    }
+    
+    input:checked[class="button-switch__checkbox"]::before{
+        left: 25px;
+    }
+}
+
+
+// personal link
+
+.application-text{
+    color: $white;
+    font-size: 12px;
+    border:1px solid $whiteBorder;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 32px;
+
+    .application-link{
+        color: $white;
+        border-bottom: 1px solid $whiteBorder;
+        padding-bottom: 3px;
+    }
+}
+
+
+// input blocks
+
+.form-text{
+    color: $white;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.form-input{
+    background-color: $white;
+    padding: 20px;
+    font-size: 20px;
+    width: 100%;
+    height: 55px;
+    border-radius: 4px;
+    margin-bottom: 18px;
+    box-shadow: 0px 15px 30px rgba(15, 35, 225, 0.4);
+}
+
+.form-range{
+    display: block;
+    margin-top: -23px;
+    width: 100%; 
+}
+
+.under-form-text{
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 8px 0 8px;
+    margin-bottom: 21px;
+}
+
+
+
+// right content
+
+.calc-block__content{
+    margin-bottom: 71px;
+    width: 335px;
+    height: 600px;
+    border-radius: 12px;
+    z-index: 3;
+
+    &_view{
+        background-color: $white;
+        box-shadow: 0px 20px 60px rgba(15, 35, 225, 0.6);
+    }
+}
+
+.content-block{
+    margin: 30px 25px;
+
+    .invoice-block{
+        border-bottom: 1px solid $whiteBorder;
+        margin-bottom: 25px;
+    }
+    .credit-program-block{
+        border-bottom: 1px solid $whiteBorder;
+        padding-bottom: 18px;
+        margin-bottom: 25px;
+    }
+
+    .checkbox-block{
+        display: flex;
+        margin-bottom: 19px;
+
+        &_check{
+            accent-color: $blue;
+            width: 16px;
+            height: 16px;
+        }
+        
+        &__text{
+            margin-left: 10px;
+            font-size: 14px;
+            line-height: 18px;
+            color: $contentText;
+        }
+        
+        &__link{
+            margin-right: 5px;
+            border-bottom: 1px solid $blue;
+            color: $blue;
+        }
+    }
+}
+
+// common text
+
+.content-text{
+    margin-bottom: 18px;
+    font-size: 12px;
+    line-height: 180%;
+    @extend %content-text;
+    opacity: 0.5;
+}
+
+.content-title{
+    margin-bottom: 30px;
+    font-size: 31px;
+    line-height: 27px;
+    @extend %content-text;
+}
+
+.content-subtitle{
+    line-height: 27px;
+    @extend %content-text;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.copy-text{
+    color: $copyText;
+    margin-bottom: 22px;
+    font-size: 11px;
+    line-height: 130%;
+}
+
+// btn-submit
+
+.button-to-send{
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+    color: $white;
+    background: $blue;
+    border-radius: 10px;
+    padding: 22px 82px;
+}
+
+// pseudo-blocks
+
+.pseudo-block{
+    margin: -60px auto;
+    border-radius: 10px;
+
+    &_first{
+        background: rgba(255, 255, 255, 0.7);
+        width: 320px;
+        height: 75px;
+        z-index: 2;
+    }
+    
+    &_second{
+        background: rgba(255, 255, 255, 0.25);
+        width: 300px;
+        height: 35px;
+        margin-top: 38px;
+        z-index: 1;
+    }
+}
